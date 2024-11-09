@@ -348,6 +348,7 @@ async fn get_aws_credentials(id_token: &str, role_arn: &str, session_name: &str)
     let region_provider = RegionProviderChain::default_provider();
     let config = aws_config::defaults(aws_config::BehaviorVersion::latest())
         .region(region_provider)
+        .no_credentials()
         .load()
         .await;
     
